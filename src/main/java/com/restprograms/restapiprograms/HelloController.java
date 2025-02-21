@@ -1,6 +1,5 @@
 package com.restprograms.restapiprograms;
 
-import com.restprograms.restapiprograms.UserDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,5 +24,10 @@ public class HelloController {
     @PostMapping("/hello/post")
     public String sayHelloPost(@RequestBody UserDTO user) {
         return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
+    }
+
+    @PutMapping("/hello/put/{firstName}")
+    public String sayHelloPut(@PathVariable String firstName, @RequestParam String lastName) {
+        return "Hello " + firstName + " " + lastName + " from BridgeLabz";
     }
 }
